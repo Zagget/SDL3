@@ -104,13 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jonat\OneDrive\Desktop\Framework\SDL3-x64\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\46793\Desktop\Frameworks\SDL3-x64\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL3.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\jonat\OneDrive\Desktop\Framework\SDL3-x64\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\46793\Desktop\Frameworks\SDL3-x64\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
