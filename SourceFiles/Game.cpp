@@ -46,6 +46,11 @@ Game::~Game()
     if (win) 
         SDL_DestroyWindow(win);
     
+    for (GameObject* go : gameObjects) {
+        delete go;
+    }
+    gameObjects.clear();
+    
     SDL_Quit();
 }
 
@@ -100,11 +105,19 @@ void Game::Render()
 
     for (GameObject* go : gameObjects) {
         go->Update(fdata.deltaTime, fdata.scaledDeltaTime);
+        go->Render();
     }
 
     SDL_RenderPresent(ren);
 }
 
+SDL_Renderer* Game::GetRenderer() {
+    return ren;
+}
+
+void Game::AddObject(GameObject* go) {
+    gameObjects.push_back(go);
+}
 
 void Game::Quit() 
 {
