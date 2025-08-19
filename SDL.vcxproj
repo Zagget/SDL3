@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL3.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\46793\Desktop\Frameworks\SDL3-x64\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -136,7 +136,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="D:\asd\videos, bilder\bilder\reaktioner\confused man.png" />
+    <Image Include="D:\asd\videos, bilder\bilder\reaktioner\confusedman.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

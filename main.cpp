@@ -6,14 +6,17 @@ int main(int argc, char** argv) {
     SDL_Window* win = SDL_CreateWindow("SDL3 Demo", 800, 600, 0);
     SDL_Renderer* ren = SDL_CreateRenderer(win, NULL);
 
-    SDL_Surface* surf = IMG_Load("confused man.png");
 
+    SDL_Surface* surf = IMG_Load("Assets/confusedman.png");
+    if (!surf) {
+        SDL_Log("IMG_Load failed: %s", SDL_GetError());
+        return 1;
+    }
     SDL_Texture* sprite = SDL_CreateTextureFromSurface(ren, surf);
     SDL_DestroySurface(surf);
 
     bool running = true;
     SDL_Event ev;
-
     while (running) {
         //Event handling
         while (SDL_PollEvent(&ev)) {
@@ -29,7 +32,7 @@ int main(int argc, char** argv) {
 
         //make rect to render sprite into
         SDL_FRect* dst = new SDL_FRect{ 100,100,64,64 };
-        SDL_RenderTexture(ren, sprite, NULL, dst);
+        //SDL_RenderTexture(ren, sprite, NULL, dst);
 
         SDL_RenderPresent(ren);
     }
