@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{48a646b3-78ef-4b27-8b63-821bea15455c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -20,8 +23,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="D:\asd\videos, bilder\bilder\reaktioner\confusedman.png">
-      <Filter>Resource Files</Filter>
+    <Image Include="confusedman.png">
+      <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
 </Project>
