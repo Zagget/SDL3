@@ -107,7 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\46793\Desktop\Frameworks\SDL3-x64\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\46793\Desktop\Git\SDL3\HeaderFiles;C:\Users\46793\Desktop\Git\SDL3\SourceFiles;C:\Users\46793\Desktop\Frameworks\SDL3-x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,10 +133,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <Image Include="confusedman.png" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="confusedman.png" />
+    <ClCompile Include="SourceFiles\Game.cpp" />
+    <ClCompile Include="SourceFiles\GameObject.cpp" />
+    <ClCompile Include="SourceFiles\main.cpp" />
+    <ClCompile Include="SourceFiles\player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HeaderFiles\FrameData.h" />
+    <ClInclude Include="HeaderFiles\Game.h" />
+    <ClInclude Include="HeaderFiles\GameObject.h" />
+    <ClInclude Include="HeaderFiles\main.h" />
+    <ClInclude Include="HeaderFiles\player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
