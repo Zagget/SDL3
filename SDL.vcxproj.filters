@@ -28,10 +28,7 @@
     <ClInclude Include="HeaderFiles\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HeaderFiles\main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HeaderFiles\player.h">
+    <ClInclude Include="HeaderFiles\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -42,10 +39,10 @@
     <ClCompile Include="SourceFiles\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SourceFiles\main.cpp">
+    <ClCompile Include="SourceFiles\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SourceFiles\player.cpp">
+    <ClCompile Include="SourceFiles\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

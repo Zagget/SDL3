@@ -1,7 +1,7 @@
 #include "player.h"
 #include <iostream>
 
-void Player:: Update(float DeltaTime, float ScaledDeltaTime) {
+void Player::Update(float DeltaTime, float ScaledDeltaTime) {
 
 	const bool* keys = SDL_GetKeyboardState(NULL);
 	SDL_PumpEvents();
@@ -11,15 +11,14 @@ void Player:: Update(float DeltaTime, float ScaledDeltaTime) {
 	yMove = 0;
 
 	if (keys[SDL_SCANCODE_W])
-	    yMove = -1;
+		yMove = -1;
 	if (keys[SDL_SCANCODE_A])
-	    xMove = -1;
+		xMove = -1;
 	if (keys[SDL_SCANCODE_S])
-	    yMove = 1;
+		yMove = 1;
 	if (keys[SDL_SCANCODE_D])
-	    xMove = 1;
+		xMove = 1;
 
-	std::cerr << "Update Player " << xMove << '\n';
 	rect.x += xMove * moveScale;
 	rect.y += yMove * moveScale;
 

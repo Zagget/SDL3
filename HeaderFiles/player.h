@@ -3,9 +3,10 @@
 
 class Player : public GameObject {
 public:
-	Player(SDL_Renderer* renderer, int x, int y, int w, int h, SDL_Texture* texture) 
-		: GameObject(renderer, x, y, w, h, texture) {};
-	
+	Player(SDL_Renderer* renderer, int x, int y, int w, int h, SDL_Texture* texture)
+		: GameObject(renderer, x, y, w, h, texture) {
+	};
+
 	~Player() {};
 
 
@@ -15,5 +16,5 @@ private:
 	float xMove = 0;
 	float yMove = 0;
 
-	float moveScale = 5;
+	float moveScale = 7;
 };
