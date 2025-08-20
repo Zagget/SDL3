@@ -1,14 +1,12 @@
 #include "player.h"
 #include <iostream>
 
-void Player::Update(float DeltaTime, float ScaledDeltaTime) {
-
+void Player::Update(float deltaTime, float scaledDeltaTime) {
 	const bool* keys = SDL_GetKeyboardState(NULL);
 	SDL_PumpEvents();
 
-	//move sprite
-	xMove = 0;
 	yMove = 0;
+	xMove = 0;
 
 	if (keys[SDL_SCANCODE_W])
 		yMove = -1;
@@ -19,13 +17,12 @@ void Player::Update(float DeltaTime, float ScaledDeltaTime) {
 	if (keys[SDL_SCANCODE_D])
 		xMove = 1;
 
-	rect.x += xMove * moveScale;
-	rect.y += yMove * moveScale;
+	SetMovement(xMove, yMove);
+
+	/*rect.x += xMove * moveScale;
+	rect.y += yMove * moveScale;*/
 
 	// bounds
 	/*if (xPos > width - 100) xPos = width - 100;
 	if (yPos > height - 100) yPos = height - 100; */
-
-
-	//SDL_RenderTexture(ren, sprite, NULL, dst);
 }

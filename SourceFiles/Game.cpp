@@ -67,6 +67,10 @@ void Game::Update()
         //Time scale
         fdata.scaledDeltaTime = fdata.deltaTime * fdata.timeScale;
 
+        for (GameObject* go : gameObjects) {
+            go->Update(fdata.deltaTime, fdata.scaledDeltaTime);
+        }
+
         Render();
         HandleEvents();
 
@@ -100,11 +104,9 @@ void Game::HandleEvents()
 
 void Game::Render() 
 {
-    //clear last frame
     SDL_RenderClear(ren);
 
     for (GameObject* go : gameObjects) {
-        go->Update(fdata.deltaTime, fdata.scaledDeltaTime);
         go->Render();
     }
 

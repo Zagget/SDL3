@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include <cmath>
 
 GameObject::GameObject(SDL_Renderer* renderer, int x, int y, int w, int h)
     : renderer(renderer) {
@@ -25,11 +26,26 @@ void GameObject::Render() {
         SDL_RenderFillRect(renderer, &rect);
 }
 
-void GameObject::Update(float DeltaTime, float ScaledDeltaTime)
+void GameObject::Update(float deltaTime, float scaledDeltaTime)
 {
 }
 
 void GameObject::SetPosition(int x, int y) {
     rect.x = (float)x;
     rect.y = (float)y;
+}
+
+void normalizeMovement(float& x, float& y) {
+    float length = std::sqrt(x * x + y * y);
+    if (length > 0.0f) {
+        x /= length;
+        y /= length;
+    }
+}
+
+void GameObject::SetMovement(float x, float y) {
+    normalizeMovement(xMove, yMove);
+
+    rect.x += xMove * moveScale;
+    rect.y += yMove * moveScale;
 }

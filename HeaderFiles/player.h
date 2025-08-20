@@ -11,10 +11,4 @@ public:
 
 
 	virtual void Update(float DeltaTime, float ScaledDeltaTime) override;
-
-private:
-	float xMove = 0;
-	float yMove = 0;
-
-	float moveScale = 7;
 };
