@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "Camera.h"
 
 class Player : public GameObject {
 public:
@@ -8,7 +9,6 @@ public:
 	};
 
 	~Player() {};
-
 
 	virtual void Update(float DeltaTime, float ScaledDeltaTime) override;
 };

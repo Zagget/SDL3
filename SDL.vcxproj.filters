@@ -12,9 +12,18 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{48a646b3-78ef-4b27-8b63-821bea15455c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjets">
+      <UniqueIdentifier>{c28144fd-0c9d-42d8-86df-2819483b1d1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{d4845108-19b6-416c-9c75-2777b1486ae8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="confusedman.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="disgustedoldman.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
@@ -25,25 +34,37 @@
     <ClInclude Include="HeaderFiles\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HeaderFiles\GameObject.h">
+    <ClInclude Include="HeaderFiles\main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HeaderFiles\Player.h">
+    <ClInclude Include="HeaderFiles\Camera.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\GameObject.h">
+      <Filter>Header Files\GameObjets</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\player.h">
+      <Filter>Header Files\GameObjets</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\Enemy.h">
+      <Filter>Header Files\GameObjets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SourceFiles\GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SourceFiles\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SourceFiles\Player.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SourceFiles\player.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceFiles\GameObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceFiles\Enemy.cpp">
+      <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

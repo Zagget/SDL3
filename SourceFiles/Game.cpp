@@ -4,9 +4,11 @@
 #include "Game.h"
 #include "GameObject.h"
 #include "FrameData.h"
+#include "player.h"
 
 Game::Game(int screenWidth, int screenHeight)
-    : screenWidth(screenWidth), screenHeight(screenHeight)
+    : screenWidth(screenWidth), screenHeight(screenHeight),
+    camera(screenWidth / 2.0f, screenHeight / 2.0f)
 {
     if (!InitSDL()) 
     {
@@ -61,20 +63,27 @@ void Game::Update()
     while (running) 
     {
         Uint64 now = SDL_GetTicks();
-        fdata.deltaTime = (now - fdata.lastTime) / 1000.0f; //seconds
+        fdata.deltaTime = (now - fdata.lastTime) / 1000.0f;
         fdata.lastTime = now;
         
-        //Time scale
+        // Time scale
         fdata.scaledDeltaTime = fdata.deltaTime * fdata.timeScale;
 
         for (GameObject* go : gameObjects) {
             go->Update(fdata.deltaTime, fdata.scaledDeltaTime);
         }
 
+        if (!gameObjects.empty()) {
+            Player* player = dynamic_cast<Player*>(gameObjects[0]);
+            if (player) {
+                UpdateCamera(player);
+            }
+        }
+
         Render();
         HandleEvents();
 
-        //delay to fps target
+        // Delay to fps target
         fdata.frameStart = SDL_GetTicks();
         fdata.framecnt++;
         fdata.frameTime = SDL_GetTicks() - fdata.frameStart;
@@ -83,6 +92,25 @@ void Game::Update()
             SDL_Delay(fdata.frameDelay - fdata.frameTime);
         }
     }
+}
+
+void Game::UpdateCamera(Player* player) {
+    if (!player) return;
+
+    float targetX = player->GetX() - screenWidth / 2 + player->GetW() / 2;
+    float targetY = player->GetY() - screenHeight / 2 + player->GetH() / 2;
+
+    // Smoothness
+    float lerpFactor = 0.07f;
+
+    float camX = camera.GetX();
+    float camY = camera.GetY();
+
+    // Lerp
+    camX = camX + (targetX - camX) * lerpFactor;
+    camY = camY + (targetY - camY) * lerpFactor;
+
+    camera.SetPosition(camX, camY);
 }
 
 void Game::HandleEvents()
@@ -107,14 +135,10 @@ void Game::Render()
     SDL_RenderClear(ren);
 
     for (GameObject* go : gameObjects) {
-        go->Render();
+        go->Render(camera);
     }
 
     SDL_RenderPresent(ren);
-}
-
-SDL_Renderer* Game::GetRenderer() {
-    return ren;
 }
 
 void Game::AddObject(GameObject* go) {

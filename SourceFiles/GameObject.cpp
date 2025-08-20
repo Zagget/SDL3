@@ -18,12 +18,13 @@ void GameObject::HandleEvent(const SDL_Event& e)
 
 }
 
-void GameObject::Render() {
+void GameObject::Render(const Camera& cam) {
+    SDL_FRect screenRect = cam.WorldToScreen(rect);
 
     if (texture)
-        SDL_RenderTexture(renderer, texture, NULL, &rect);
+        SDL_RenderTexture(renderer, texture, NULL, &screenRect);
     else
-        SDL_RenderFillRect(renderer, &rect);
+        SDL_RenderFillRect(renderer, &screenRect);
 }
 
 void GameObject::Update(float deltaTime, float scaledDeltaTime)
