@@ -49,6 +49,9 @@
     <ClInclude Include="HeaderFiles\Enemy.h">
       <Filter>Header Files\GameObjets</Filter>
     </ClInclude>
+    <ClInclude Include="HeaderFiles\WorldData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Game.cpp">

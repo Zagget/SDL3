@@ -24,4 +24,6 @@ public:
 
 private:
     float x, y;
+    int screenW = 0, screenH = 0;
+    float worldW = 0.0f, worldH = 0.0f;
 };

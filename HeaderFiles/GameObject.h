@@ -11,6 +11,7 @@ public:
 	virtual void HandleEvent(const SDL_Event& e);
 	virtual void Render(const Camera& cam);
 	virtual void Update(float deltaTime, float scaledDeltaTime);
+
 	virtual void SetPosition(int x, int y);
 	virtual void SetMovement(float x, float y);
 

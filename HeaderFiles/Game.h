@@ -13,12 +13,12 @@ public:
 	
 	virtual ~Game();
 
-	virtual void Update();
-	virtual void UpdateCamera(Player* player);
-	virtual void HandleEvents();
-	virtual void Render();
+	void Update();
+	void UpdateCamera(Player* player);
+	void HandleEvents();
+	void Render();
 
-	virtual void AddObject(GameObject* go);
+	void AddObject(GameObject* go);
 
 	SDL_Renderer* GetRenderer() const { return ren; }
 	int GetScreenWidth() const { return screenWidth; }
