@@ -13,7 +13,10 @@ public:
 	virtual void Render(const Camera& cam);
 	virtual void Update(float deltaTime, float scaledDeltaTime);
 
-	virtual void SetMovement();
+	virtual void OnCollision(GameObject& other);
+	
+	bool CheckCollision(const GameObject& other) const;
+	void SetMovement();
 
 	float GetX() const { return rect.x; }
 	float GetY() const { return rect.y; }
@@ -27,6 +30,8 @@ protected:
 	SDL_Texture* texture = nullptr;
 
 	WorldData wData;
+
+	SDL_FPoint lastPos;
 
 	float xMove = 0;
 	float yMove = 0;

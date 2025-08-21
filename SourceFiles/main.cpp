@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
 	int middleX = wData.worldW / 2;
 	int middleY = wData.worldH / 2;
 
-	Player* player = new Player(ren, middleX, middleX, 200, 200, playerTexture);
+	Player* player = new Player(ren, middleX, middleY, 200, 200, playerTexture);
 	Enemy* enemy = new Enemy(ren, middleX + 200, middleY, 200, 200, enemyTexture);
 
 	game.AddObject(player);

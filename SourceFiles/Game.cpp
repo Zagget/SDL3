@@ -58,7 +58,7 @@ Game::~Game()
 
 void Game::Update() 
 {
-    std::cerr << "In Update" << '\n';
+    printf("In Update'\n'");
 
     while (running) 
     {
@@ -66,13 +66,18 @@ void Game::Update()
         fdata.deltaTime = (now - fdata.lastTime) / 1000.0f;
         fdata.lastTime = now;
         
-        // Time scale
         fdata.scaledDeltaTime = fdata.deltaTime * fdata.timeScale;
 
+        HandleEvents();
+
+        // Update all gos
         for (GameObject* go : gameObjects) {
             go->Update(fdata.deltaTime, fdata.scaledDeltaTime);
         }
 
+        CheckCollision();
+
+        // Update camera
         if (!gameObjects.empty()) {
             Player* player = dynamic_cast<Player*>(gameObjects[0]);
             if (player) {
@@ -81,7 +86,6 @@ void Game::Update()
         }
 
         Render();
-        HandleEvents();
 
         // Delay to fps target
         fdata.frameStart = SDL_GetTicks();
@@ -90,6 +94,25 @@ void Game::Update()
 
         if (fdata.frameTime < fdata.frameDelay) {
             SDL_Delay(fdata.frameDelay - fdata.frameTime);
+        }
+    }
+}
+
+void Game::CheckCollision() {
+    int goAmount = gameObjects.size();
+
+    for (int i = 0; i < goAmount; ++i) {
+        GameObject* a = gameObjects[i];
+
+        for (int j = i + 1; j < goAmount; ++j) {
+            GameObject* b = gameObjects[j];
+
+            if (a->CheckCollision(*b)) {
+                a->OnCollision(*b);
+            }
+            if (b->CheckCollision(*a)) {
+                b->OnCollision(*a);
+            }
         }
     }
 }

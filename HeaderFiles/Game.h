@@ -14,6 +14,7 @@ public:
 	virtual ~Game();
 
 	void Update();
+	void CheckCollision();
 	void UpdateCamera(Player* player);
 	void HandleEvents();
 	void Render();
