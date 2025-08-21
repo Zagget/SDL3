@@ -6,6 +6,7 @@
 #include "FrameData.h"
 #include "player.h"
 #include "WorldData.h"
+#include "AudioPlayer.h"
 
 class Game
 {
@@ -41,6 +42,7 @@ protected:
 
 	FrameData fData;
 	WorldData wData;
+	AudioPlayer audio;
 
 	int screenWidth;
 	int screenHeight;

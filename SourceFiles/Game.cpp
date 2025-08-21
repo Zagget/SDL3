@@ -40,7 +40,19 @@ bool Game::InitSDL()
         std::cerr << "background Texture error: " << SDL_GetError() << '\n';
     }
 
-    std::cerr << "Init Done" << '\n';
+    // Initialize SDL audio
+    if (!audio.Init()) {
+        std::cerr << "Failed to initialize audio!\n";
+        return false;
+    }
+
+    // Load a sound file (WAV, OGG, etc.)
+    if (!audio.Load("hit_plank2.wav")) {
+        std::cerr << "Failed to load sound!\n";
+        return false;
+    }
+
+    std::cerr << "Game Init Done" << '\n';
 
     return true;
 }
@@ -56,13 +68,11 @@ Game::~Game()
         delete go;
     }
     gameObjects.clear();
-    
-    SDL_Quit();
 }
 
 void Game::Update() 
 {
-    printf("In Update'\n'");
+    printf("In Update\n");
 
     while (running) 
     {
@@ -114,6 +124,9 @@ void Game::CheckCollision() {
             if (a->CheckCollision(*b)) {
                 a->OnCollision();
                 b->OnCollision();
+                
+                audio.Stop();
+                audio.Play(false);
             }
         }
     }
@@ -134,6 +147,13 @@ void Game::UpdateCamera(Player* player) {
     // Lerp
     camX = camX + (targetX - camX) * lerpFactor;
     camY = camY + (targetY - camY) * lerpFactor;
+
+    // Clamp to world bounds
+    if (camX < 0) camX = 0;
+    if (camY < 0) camY = 0;
+
+    if (camX > wData.worldW - screenWidth) camX = wData.worldW - screenWidth;
+    if (camY > wData.worldH - screenHeight) camY = wData.worldH - screenHeight;
 
     camera.SetPosition(camX, camY);
 }

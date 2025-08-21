@@ -7,7 +7,6 @@
 #include "WorldData.h"
 
 int main(int argc, char** argv) {
-
 	Game game(1000, 800);
 
 	SDL_Renderer* ren = game.GetRenderer();
@@ -28,10 +27,14 @@ int main(int argc, char** argv) {
 	int middleY = wData.worldH / 2;
 
 	Player* player = new Player(ren, middleX, middleY, 200, 200, playerTexture);
-	Enemy* enemy = new Enemy(ren, middleX + 200, middleY, 200, 200, enemyTexture);
+
+	Enemy* enemy1 = new Enemy(ren, middleX - 400, middleY, 200, 200, enemyTexture);
+	Enemy* enemy2 = new Enemy(ren, middleX + 400, middleY, 200, 200, enemyTexture);
 
 	game.AddObject(player);
-	game.AddObject(enemy);
+
+	game.AddObject(enemy1);
+	game.AddObject(enemy2);
 
 	while (game.running) {
 		game.Update();

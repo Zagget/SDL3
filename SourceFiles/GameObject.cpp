@@ -36,16 +36,6 @@ void GameObject::Render(const Camera& cam) {
 
         SDL_RenderTexture(renderer, texture, NULL, &screenRect);
     }
-    else {
-        if (flashTimer > 0) {
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-            flashTimer--;
-        }
-        else {
-            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-        }
-        SDL_RenderFillRect(renderer, &screenRect);
-    }
 }
 
 void GameObject::Update(float deltaTime, float scaledDeltaTime) {

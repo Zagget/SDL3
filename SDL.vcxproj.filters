@@ -61,6 +61,9 @@
     <ClInclude Include="HeaderFiles\Random.h">
       <Filter>Header Files\Helper</Filter>
     </ClInclude>
+    <ClInclude Include="HeaderFiles\AudioPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Game.cpp">
@@ -78,5 +81,13 @@
     <ClCompile Include="SourceFiles\Enemy.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="HeaderFiles\AudioPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="hit_plank2.wav">
+      <Filter>Assets</Filter>
+    </Media>
   </ItemGroup>
 </Project>
