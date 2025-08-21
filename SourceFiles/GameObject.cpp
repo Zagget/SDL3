@@ -22,10 +22,30 @@ void GameObject::HandleEvent(const SDL_Event& e){
 void GameObject::Render(const Camera& cam) {
     SDL_FRect screenRect = cam.WorldToScreen(rect);
 
-    if (texture)
+    if (texture) {
+        // Flash
+        if (flashTimer > 0) {
+            SDL_SetTextureColorMod(texture, 255, 255, 255); 
+            SDL_SetTextureAlphaMod(texture, 255);           
+            flashTimer--;
+        }
+        else {
+            SDL_SetTextureColorMod(texture, 150, 150, 150); 
+            SDL_SetTextureAlphaMod(texture, 255);
+        }
+
         SDL_RenderTexture(renderer, texture, NULL, &screenRect);
-    else
+    }
+    else {
+        if (flashTimer > 0) {
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            flashTimer--;
+        }
+        else {
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+        }
         SDL_RenderFillRect(renderer, &screenRect);
+    }
 }
 
 void GameObject::Update(float deltaTime, float scaledDeltaTime) {
@@ -38,9 +58,12 @@ bool GameObject::CheckCollision(const GameObject& other) const {
         rect.y + rect.h > other.rect.y);
 }
 
-void GameObject::OnCollision(GameObject& other) {
+void GameObject::OnCollision() {
     rect.x = lastPos.x;
     rect.y = lastPos.y;
+
+    flashTimer = 5;
+
 }
 
 void normalizeMovement(float& x, float& y) {
@@ -61,9 +84,8 @@ void GameObject::SetMovement() {
 
     // clamp to world bounds
     if (rect.x < 0) rect.x = 0;
-    if (rect.x > wData.worldW) rect.x = wData.worldW;
+    if (rect.x > wData.worldW - rect.w) rect.x = wData.worldW - rect.w;
 
     if (rect.y < 0) rect.y = 0;
-    if (rect.y > wData.worldH) rect.y = wData.worldH;
-
+    if (rect.y > wData.worldH - rect.h) rect.y = wData.worldH - rect.h;
 }

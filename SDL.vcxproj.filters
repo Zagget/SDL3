@@ -32,6 +32,9 @@
     <Image Include="disgustedoldman.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="background.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeaderFiles\Game.h">

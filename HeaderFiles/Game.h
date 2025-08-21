@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "FrameData.h"
 #include "player.h"
+#include "WorldData.h"
 
 class Game
 {
@@ -33,11 +34,13 @@ protected:
 
 	SDL_Window* win = nullptr;
 	SDL_Renderer* ren = nullptr;
+	SDL_Texture* background = nullptr;
 	Camera camera;
 
 	std::vector<GameObject*> gameObjects;
 
-	FrameData fdata;
+	FrameData fData;
+	WorldData wData;
 
 	int screenWidth;
 	int screenHeight;

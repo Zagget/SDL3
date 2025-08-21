@@ -20,4 +20,5 @@ void Player::Update(float deltaTime, float scaledDeltaTime) {
 	SetMovement();
 
 	printf("\rplayerPos X: %.0f Y: %.0f ", rect.x, rect.y);
+	fflush(stdout);
 }

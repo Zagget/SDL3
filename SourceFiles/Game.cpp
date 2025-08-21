@@ -35,7 +35,11 @@ bool Game::InitSDL()
         return false;
     }
 
-    SDL_SetRenderDrawColor(ren, 2, 75, 120, 255);
+    background = IMG_LoadTexture(ren, "background.png");
+    if (!background) {
+        std::cerr << "background Texture error: " << SDL_GetError() << '\n';
+    }
+
     std::cerr << "Init Done" << '\n';
 
     return true;
@@ -63,16 +67,16 @@ void Game::Update()
     while (running) 
     {
         Uint64 now = SDL_GetTicks();
-        fdata.deltaTime = (now - fdata.lastTime) / 1000.0f;
-        fdata.lastTime = now;
+        fData.deltaTime = (now - fData.lastTime) / 1000.0f;
+        fData.lastTime = now;
         
-        fdata.scaledDeltaTime = fdata.deltaTime * fdata.timeScale;
+        fData.scaledDeltaTime = fData.deltaTime * fData.timeScale;
 
         HandleEvents();
 
         // Update all gos
         for (GameObject* go : gameObjects) {
-            go->Update(fdata.deltaTime, fdata.scaledDeltaTime);
+            go->Update(fData.deltaTime, fData.scaledDeltaTime);
         }
 
         CheckCollision();
@@ -88,12 +92,12 @@ void Game::Update()
         Render();
 
         // Delay to fps target
-        fdata.frameStart = SDL_GetTicks();
-        fdata.framecnt++;
-        fdata.frameTime = SDL_GetTicks() - fdata.frameStart;
+        fData.frameStart = SDL_GetTicks();
+        fData.framecnt++;
+        fData.frameTime = SDL_GetTicks() - fData.frameStart;
 
-        if (fdata.frameTime < fdata.frameDelay) {
-            SDL_Delay(fdata.frameDelay - fdata.frameTime);
+        if (fData.frameTime < fData.frameDelay) {
+            SDL_Delay(fData.frameDelay - fData.frameTime);
         }
     }
 }
@@ -108,10 +112,8 @@ void Game::CheckCollision() {
             GameObject* b = gameObjects[j];
 
             if (a->CheckCollision(*b)) {
-                a->OnCollision(*b);
-            }
-            if (b->CheckCollision(*a)) {
-                b->OnCollision(*a);
+                a->OnCollision();
+                b->OnCollision();
             }
         }
     }
@@ -156,6 +158,11 @@ void Game::HandleEvents()
 void Game::Render() 
 {
     SDL_RenderClear(ren);
+
+    if (background) {
+        SDL_FRect bgRect = { -camera.GetX(), -camera.GetY(), wData.worldW, wData.worldH};
+        SDL_RenderTexture(ren, background, nullptr, &bgRect);
+    }
 
     for (GameObject* go : gameObjects) {
         go->Render(camera);
