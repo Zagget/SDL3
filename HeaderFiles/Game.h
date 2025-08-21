@@ -37,6 +37,7 @@ protected:
 	std::vector<GameObject*> gameObjects;
 
 	FrameData fdata;
+
 	int screenWidth;
 	int screenHeight;
 };

@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "player.h"
 #include "Enemy.h"
+#include "WorldData.h"
 
 int main(int argc, char** argv) {
 
@@ -21,14 +22,13 @@ int main(int argc, char** argv) {
 		std::cerr << "playerTexture error: " << SDL_GetError() << '\n';
 	}
 
-	int middleX = game.GetScreenWidth() / 2 - 200 / 2;
-	int middleY = game.GetScreenHeight() / 2 - 200 / 2;
+	WorldData wData;
 
-	int topLeftX = -game.GetScreenWidth() - 200 / 2;
-	int topleftY = -game.GetScreenHeight() - 200 / 2;
+	int middleX = wData.worldW / 2;
+	int middleY = wData.worldH / 2;
 
-	Player* player = new Player(ren, 0, 0, 200, 200, playerTexture);
-	Enemy* enemy = new Enemy(ren, middleX, middleY, 200, 200, enemyTexture);
+	Player* player = new Player(ren, middleX, middleX, 200, 200, playerTexture);
+	Enemy* enemy = new Enemy(ren, middleX + 200, middleY, 200, 200, enemyTexture);
 
 	game.AddObject(player);
 	game.AddObject(enemy);

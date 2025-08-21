@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include <cmath>
+#include "WorldData.h"
 
 GameObject::GameObject(SDL_Renderer* renderer, int x, int y, int w, int h)
     : renderer(renderer) {
@@ -13,8 +14,7 @@ GameObject::GameObject(SDL_Renderer* renderer, int x, int y, int w, int h, SDL_T
 GameObject::~GameObject() {}
 
 
-void GameObject::HandleEvent(const SDL_Event& e)
-{
+void GameObject::HandleEvent(const SDL_Event& e){
 
 }
 
@@ -27,13 +27,7 @@ void GameObject::Render(const Camera& cam) {
         SDL_RenderFillRect(renderer, &screenRect);
 }
 
-void GameObject::Update(float deltaTime, float scaledDeltaTime)
-{
-}
-
-void GameObject::SetPosition(int x, int y) {
-    rect.x = (float)x;
-    rect.y = (float)y;
+void GameObject::Update(float deltaTime, float scaledDeltaTime) {
 }
 
 void normalizeMovement(float& x, float& y) {
@@ -44,9 +38,18 @@ void normalizeMovement(float& x, float& y) {
     }
 }
 
-void GameObject::SetMovement(float x, float y) {
+void GameObject::SetMovement() {
     normalizeMovement(xMove, yMove);
 
     rect.x += xMove * moveScale;
     rect.y += yMove * moveScale;
+
+    // Check collision
+
+    // clamp to world bounds
+    if (rect.x < 0) rect.x = 0;
+    if (rect.x > wData.worldW) rect.x = wData.worldW;
+
+    if (rect.y < 0) rect.y = 0;
+    if (rect.y > wData.worldH) rect.y = wData.worldH;
 }

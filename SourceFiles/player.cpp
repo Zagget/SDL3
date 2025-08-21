@@ -1,5 +1,5 @@
-#include <iostream>
 #include "player.h"
+#include <iostream>
 
 void Player::Update(float deltaTime, float scaledDeltaTime) {
 	const bool* keys = SDL_GetKeyboardState(NULL);
@@ -17,9 +17,7 @@ void Player::Update(float deltaTime, float scaledDeltaTime) {
 	if (keys[SDL_SCANCODE_D])
 		xMove = 1;
 
-	SetMovement(xMove, yMove);
+	SetMovement();
 
-	// bounds
-	/*if (xPos > width - 100) xPos = width - 100;
-	if (yPos > height - 100) yPos = height - 100; */
+	printf("\rplayerPos X: %.0f Y: %.0f ", rect.x, rect.y);
 }

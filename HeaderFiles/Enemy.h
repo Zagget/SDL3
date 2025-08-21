@@ -10,5 +10,8 @@ public:
 	~Enemy() {}
 
 	virtual void Update(float deltaTime, float scaledDeltaTime) override;
-	virtual void RandomDirection();
+
+private:
+	int currentDir = 0;
+	float directionTimer = 0.0f;
 };

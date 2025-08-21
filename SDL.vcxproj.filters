@@ -18,6 +18,12 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{d4845108-19b6-416c-9c75-2777b1486ae8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{5b4ea662-5f35-4ae2-b0cd-bc61bc52908f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helper">
+      <UniqueIdentifier>{c042d260-9bcf-403d-affe-71361f1861e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="confusedman.png">
@@ -28,13 +34,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HeaderFiles\FrameData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="HeaderFiles\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HeaderFiles\main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HeaderFiles\Camera.h">
@@ -50,7 +50,13 @@
       <Filter>Header Files\GameObjets</Filter>
     </ClInclude>
     <ClInclude Include="HeaderFiles\WorldData.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\FrameData.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\Random.h">
+      <Filter>Header Files\Helper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
