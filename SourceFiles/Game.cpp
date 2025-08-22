@@ -52,8 +52,6 @@ bool Game::InitSDL()
 		return false;
 	}
 
-	std::cerr << "Game Init Done" << '\n';
-
 	return true;
 }
 

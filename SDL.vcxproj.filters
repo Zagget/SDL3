@@ -24,6 +24,9 @@
     <Filter Include="Header Files\Helper">
       <UniqueIdentifier>{c042d260-9bcf-403d-affe-71361f1861e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Data">
+      <UniqueIdentifier>{dbfb9d01-d1ba-42ee-adae-a0a1a5800ea0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="confusedman.png">
@@ -58,6 +61,9 @@
     <ClInclude Include="HeaderFiles\Enemy.h">
       <Filter>Header Files\GameObjets</Filter>
     </ClInclude>
+    <ClInclude Include="HeaderFiles\TextData.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceFiles\Game.cpp">
@@ -77,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="SourceFiles\Enemy.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HeaderFiles\TextData.cpp">
+      <Filter>Source Files\Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

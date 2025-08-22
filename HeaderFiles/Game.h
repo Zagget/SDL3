@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_ttf.h>
 #include <vector>
 #include "GameObject.h"
 #include "Camera.h"
@@ -12,7 +13,7 @@ class Game
 {
 public:
 	Game(int screenWidth, int screenHeight);
-	
+
 	virtual ~Game();
 
 	void Update();
@@ -26,7 +27,7 @@ public:
 	SDL_Renderer* GetRenderer() const { return ren; }
 	int GetScreenWidth() const { return screenWidth; }
 	int GetScreenHeight() const { return screenHeight; }
-	
+
 	void Quit();
 	bool running = true;
 
@@ -36,6 +37,8 @@ protected:
 	SDL_Window* win = nullptr;
 	SDL_Renderer* ren = nullptr;
 	SDL_Texture* background = nullptr;
+	SDL_Texture* text = nullptr;
+
 	Camera camera;
 
 	std::vector<GameObject*> gameObjects;
