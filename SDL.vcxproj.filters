@@ -29,18 +29,9 @@
     <Image Include="confusedman.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="disgustedoldman.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="background.png">
-      <Filter>Assets</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeaderFiles\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HeaderFiles\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HeaderFiles\GameObject.h">
@@ -49,20 +40,23 @@
     <ClInclude Include="HeaderFiles\player.h">
       <Filter>Header Files\GameObjets</Filter>
     </ClInclude>
-    <ClInclude Include="HeaderFiles\Enemy.h">
-      <Filter>Header Files\GameObjets</Filter>
-    </ClInclude>
-    <ClInclude Include="HeaderFiles\WorldData.h">
-      <Filter>Header Files\Data</Filter>
-    </ClInclude>
     <ClInclude Include="HeaderFiles\FrameData.h">
       <Filter>Header Files\Data</Filter>
     </ClInclude>
-    <ClInclude Include="HeaderFiles\Random.h">
-      <Filter>Header Files\Helper</Filter>
-    </ClInclude>
     <ClInclude Include="HeaderFiles\AudioPlayer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\Random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\WorldData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeaderFiles\Enemy.h">
+      <Filter>Header Files\GameObjets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -78,16 +72,11 @@
     <ClCompile Include="SourceFiles\GameObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="SourceFiles\Enemy.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="HeaderFiles\AudioPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="hit_plank2.wav">
-      <Filter>Assets</Filter>
-    </Media>
+    <ClCompile Include="SourceFiles\Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

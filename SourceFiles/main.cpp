@@ -7,7 +7,8 @@
 #include "WorldData.h"
 
 int main(int argc, char** argv) {
-	Game game(1000, 800);
+	// 1000 800
+	Game game(1500, 800);
 
 	SDL_Renderer* ren = game.GetRenderer();
 
